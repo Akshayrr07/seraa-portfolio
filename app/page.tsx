@@ -11,6 +11,7 @@ export default function HomePage() {
   return (
     <main>
       <Header />
+      <h1 className="text-red-500 text-5xl">TAILWIND TEST</h1>
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
