@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Kiruthi Raghavendran | Software Developer Portfolio',
+  title: 'Kiruthi Raghavendran | Software Developer',
   description:
     'Portfolio of Kiruthi Raghavendran showcasing web development projects, SQL systems, and project execution experience.',
 };
