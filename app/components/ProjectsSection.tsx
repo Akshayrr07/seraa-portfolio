@@ -25,7 +25,7 @@ const projects = [
     description:
       'Built a web-based system for managing student records with dynamic data handling. Managed frontend-backend interaction, implemented validation workflows, and ensured efficient data retrieval using structured queries.',
     tags: ['HTML', 'JavaScript', 'SQL', 'MySQL'],
-    link: '#',
+    link: 'https://github.com/Kiruthiii/Student-Management-System',
     featured: true,
   },
   {
