@@ -163,35 +163,50 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit}>
                   <div className="space-y-4">
 
-                    <input
-                      name="from_name"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Your Name"
-                      className="ink-input w-full"
-                      required
-                    />
+                    <div>
+                      <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                      <input
+                        id="contact-name"
+                        name="from_name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Your Name"
+                        aria-label="Your Name"
+                        className="ink-input w-full"
+                        required
+                      />
+                    </div>
 
-                    <input
-                      name="from_email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Your Email"
-                      className="ink-input w-full"
-                      required
-                    />
+                    <div>
+                      <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                      <input
+                        id="contact-email"
+                        name="from_email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Your Email"
+                        aria-label="Your Email"
+                        className="ink-input w-full"
+                        required
+                      />
+                    </div>
 
-                    <textarea
-                      name="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Your Message"
-                      rows={4}
-                      className="ink-input w-full"
-                      required
-                    />
+                    <div>
+                      <label htmlFor="contact-message" className="sr-only">Your Message</label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Your Message"
+                        aria-label="Your Message"
+                        rows={4}
+                        className="ink-input w-full"
+                        required
+                      />
+                    </div>
 
                     {error && <p className="text-red-500 text-sm">{error}</p>}
 
