@@ -4,8 +4,8 @@ import React, { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/AppIcon';
 
 const skills = [
-  { category: 'Development', items: ['HTML', 'CSS', 'JavaScript', 'React'] },
-  { category: 'Database', items: ['SQL', 'MySQL', 'Database Design'] },
+  { category: 'Development', items: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'] },
+  { category: 'AI & Databases', items: ['Python', 'Machine Learning', 'SQL', 'MySQL'] },
   {
     category: 'Coordination & Tools',
     items: ['Project Coordination', 'Git', 'Problem Solving', 'Team Collaboration'],
@@ -20,13 +20,12 @@ export default function AboutSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target
-              .querySelectorAll('.reveal-up, .reveal-fade')
-              .forEach((el) => el.classList.add('visible'));
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.05 }
     );
 
     const elements = sectionRef.current?.querySelectorAll('.reveal-up, .reveal-fade');

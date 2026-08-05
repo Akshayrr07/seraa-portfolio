@@ -13,26 +13,26 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Diet Diaries – Health Tracking Web App',
+    title: 'Legal Document AI',
     description:
-      'Developed a responsive web application for structured data entry and tracking. Coordinated validation workflows, ensured data integrity, and improved reliability through systematic testing and debugging.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'SQL'],
+      'Developed an AI-powered legal document analysis and risk detection application. Performed data collection, document processing, testing, and validation to analyse legal content and generate meaningful insights. Focused on improving accuracy, reliability, and overall system functionality.',
+    tags: ['Python', 'AI', 'NLP', 'Data Collection'],
     link: '#',
     featured: true,
   },
   {
-    title: 'Student Record Management System',
+    title: 'School Timetable Generator',
     description:
-      'Built a web-based system for managing student records with dynamic data handling. Managed frontend-backend interaction, implemented validation workflows, and ensured efficient data retrieval using structured queries.',
-    tags: ['HTML', 'JavaScript', 'SQL', 'MySQL'],
-    link: 'https://github.com/Kiruthiii/Student-Management-System',
+      'Developed a web-based school timetable generation application to automate class scheduling and resource allocation. Implemented conflict-free timetable generation by managing teachers, subjects, classes, and scheduling constraints. Performed testing and validation to ensure accuracy, reliability, and efficient timetable planning.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Algorithms'],
+    link: '#',
     featured: true,
   },
   {
-    title: 'Heart Disease Prediction (ML)',
+    title: 'The Fine Dine',
     description:
-      'Executed a machine learning workflow including data preprocessing, validation, and performance analysis. Ensured accuracy through testing, result verification, and structured evaluation techniques.',
-    tags: ['Python', 'Machine Learning', 'Data Analysis'],
+      'Developed a web application to enhance the digital dining experience. Implemented user authentication, digital menu management, and interactive functionalities that enable customers to browse and place orders seamlessly. Conducted testing and validation to improve usability and performance.',
+    tags: ['React', 'JavaScript', 'HTML', 'CSS'],
     link: '#',
   },
 ];
