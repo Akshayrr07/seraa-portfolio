@@ -1,0 +1,64 @@
+name: CI / Verify Portfolio
+
+on:
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ─────────────────────────────────────────
+  # JOB 1: Verify (Lint, Type-check, and Build)
+  # ─────────────────────────────────────────
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Build (Next.js)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+
+  # ─────────────────────────────────────────
+  # JOB 2: Auto-Merge (Only for Pull Requests)
+  # ─────────────────────────────────────────
+  auto-merge:
+    name: Auto Merge
+    needs: verify
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Enable auto-merge for the PR
+        run: |
+          gh pr merge "${{ github.event.pull_request.number }}" --auto --merge || \
+          gh pr merge "${{ github.event.pull_request.number }}" --merge || \
+          echo "Could not auto-merge pull request. Please ensure 'Allow auto-merge' is enabled under Repository Settings -> General."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
