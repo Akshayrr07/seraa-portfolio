@@ -37,12 +37,22 @@ export default function ContactSection() {
 
     const form = e.currentTarget;
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError('Email service configuration missing. Please reach out directly via email.');
+      setLoading(false);
+      return;
+    }
+
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        serviceId,
+        templateId,
         form,
-        'YOUR_PUBLIC_KEY'
+        publicKey
       )
       .then(() => {
         setSubmitted(true);
@@ -139,7 +149,7 @@ export default function ContactSection() {
                     justifyContent: 'center',
                   }}
                 >
-                  <Icon name={item.icon as any} size={18} style={{ color: 'var(--brass)' } as React.CSSProperties} />
+                  <Icon name={item.icon} size={18} style={{ color: 'var(--brass)' } as React.CSSProperties} />
                 </div>
                 <span className="text-sm font-medium text-gray-700">{item.label}</span>
               </a>
@@ -153,35 +163,50 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit}>
                   <div className="space-y-4">
 
-                    <input
-                      name="from_name"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Your Name"
-                      className="ink-input w-full"
-                      required
-                    />
+                    <div>
+                      <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                      <input
+                        id="contact-name"
+                        name="from_name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Your Name"
+                        aria-label="Your Name"
+                        className="ink-input w-full"
+                        required
+                      />
+                    </div>
 
-                    <input
-                      name="from_email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Your Email"
-                      className="ink-input w-full"
-                      required
-                    />
+                    <div>
+                      <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                      <input
+                        id="contact-email"
+                        name="from_email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Your Email"
+                        aria-label="Your Email"
+                        className="ink-input w-full"
+                        required
+                      />
+                    </div>
 
-                    <textarea
-                      name="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Your Message"
-                      rows={4}
-                      className="ink-input w-full"
-                      required
-                    />
+                    <div>
+                      <label htmlFor="contact-message" className="sr-only">Your Message</label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Your Message"
+                        aria-label="Your Message"
+                        rows={4}
+                        className="ink-input w-full"
+                        required
+                      />
+                    </div>
 
                     {error && <p className="text-red-500 text-sm">{error}</p>}
 

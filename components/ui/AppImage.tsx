@@ -17,7 +17,7 @@ interface AppImageProps {
     sizes?: string;
     onClick?: () => void;
     fallbackSrc?: string;
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
 function AppImage({
@@ -69,9 +69,10 @@ function AppImage({
         if (fill) {
             return (
                 <div className={`relative ${className}`} style={{ width: width || '100%', height: height || '100%' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src={imageSrc}
-                        alt={alt}
+                        alt={alt || ''}
                         className={`${commonClassName} absolute inset-0 w-full h-full object-cover`}
                         onError={handleError}
                         onLoad={handleLoad}
@@ -84,9 +85,10 @@ function AppImage({
         }
 
         return (
+            /* eslint-disable-next-line @next/next/no-img-element */
             <img
                 src={imageSrc}
-                alt={alt}
+                alt={alt || ''}
                 className={commonClassName}
                 onError={handleError}
                 onLoad={handleLoad}
@@ -100,7 +102,6 @@ function AppImage({
     // For local images and data URLs, use Next.js Image component
     const imageProps = {
         src: imageSrc,
-        alt,
         className: commonClassName,
         priority,
         quality,
@@ -117,6 +118,7 @@ function AppImage({
         return (
             <div className={`relative ${className}`}>
                 <Image
+                    alt={alt || ''}
                     {...imageProps}
                     fill
                     sizes={sizes || '100vw'}
@@ -128,6 +130,7 @@ function AppImage({
 
     return (
         <Image
+            alt={alt || ''}
             {...imageProps}
             width={width || 400}
             height={height || 300}

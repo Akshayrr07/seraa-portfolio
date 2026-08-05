@@ -66,7 +66,7 @@ export default function Header() {
             href="#contact"
             className="btn-primary hidden sm:inline-block"
             style={{ padding: '10px 24px', fontSize: '13px' }}>
-            <span>Let's Connect</span>
+            <span>Let&apos;s Connect</span>
           </a>
         </nav>
 
@@ -115,7 +115,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="btn-primary inline-block text-center mt-4"
             style={{ padding: '12px 28px', fontSize: '14px' }}>
-            <span>Let's Connect</span>
+            <span>Let&apos;s Connect</span>
           </a>
         </div>
       )}
