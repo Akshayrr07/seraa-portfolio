@@ -5,38 +5,27 @@ import Icon from '@/components/ui/AppIcon';
 
 const experiences = [
   {
-    role: 'Frontend Developer Intern',
-    company: 'MindBridges, Chennai',
-    period: '2026',
+    role: 'Frontend Intern',
+    company: 'Mind Bridges Technologies',
+    period: '2026 (3 Months)',
     description:
-      'Worked on frontend development tasks including building responsive UI components and improving user experience. Collaborated with team members, handled component structuring, and ensured smooth integration with backend workflows.',
+      'Worked as a Frontend Intern in an onsite environment for 3 months, developing responsive and reusable user interface components using React. Contributed to API integration and frontend feature implementation while collaborating closely with team members.',
     highlights: [
-      'Developed responsive UI components',
-      'Improved usability and interface consistency',
-      'Collaborated on frontend integration tasks',
+      'Developed responsive and reusable UI components using React',
+      'Contributed to API integration and frontend feature implementation',
+      'Worked extensively with React, HTML, CSS, and TypeScript in an agile environment',
     ],
   },
   {
-    role: 'Web Development Trainee',
-    company: 'In-Plant Training – IDM Tech Park',
-    period: '2024',
+    role: 'Frontend Developer Trainee',
+    company: 'Encipher Health',
+    period: '2024 (2 Months)',
     description:
-      'Worked on frontend development concepts including responsive UI design, form handling, and basic data integration. Collaborated on structured workflows and improved application usability through testing and iteration.',
+      'Completed a 2-month remote training internship as a Frontend Developer Trainee, focusing on developing responsive UI components for the Fine Dine web application. Built frontend features with emphasis on usability, clean interface design, and functionality.',
     highlights: [
-      'Built responsive UI components',
-      'Handled form validation and data flow',
-      'Collaborated on structured development tasks',
-    ],
-  },
-  {
-    role: 'Academic Project Contributor',
-    period : 2023,
-    description:
-      'Executed multiple academic projects involving web development and machine learning. Took responsibility for organizing tasks, validating outputs, and ensuring smooth execution of project workflows.',
-    highlights: [
-      'Delivered multiple end-to-end projects',
-      'Handled testing and debugging workflows',
-      'Improved system reliability through validation',
+      'Developed responsive UI components for the Fine Dine web application',
+      'Used React, JavaScript, HTML, and CSS with emphasis on usability and design',
+      'Demonstrated effective communication and remote collaboration',
     ],
   },
 ];
