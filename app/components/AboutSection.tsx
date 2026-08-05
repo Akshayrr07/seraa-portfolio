@@ -80,7 +80,7 @@ export default function AboutSection() {
                   key={item.text}
                   className="flex items-center gap-2 bg-white border border-gray-200 px-3 py-1 rounded-md shadow-sm"
                 >
-                  <Icon name={item.icon as any} size={14} className="text-yellow-700" />
+                  <Icon name={item.icon} size={14} className="text-yellow-700" />
                   <span className="text-sm font-medium text-gray-700">
                     {item.text}
                   </span>
