@@ -57,8 +57,9 @@ jobs:
     steps:
       - name: Enable auto-merge for the PR
         run: |
-          gh pr merge "${{ github.event.pull_request.number }}" --auto --merge || \
-          gh pr merge "${{ github.event.pull_request.number }}" --merge || \
-          echo "Could not auto-merge pull request. Please ensure 'Allow auto-merge' is enabled under Repository Settings -> General."
+          gh pr merge "${{ github.event.pull_request.number }}" --auto --merge || {
+            echo "::error::Could not enable auto-merge. Please ensure 'Allow auto-merge' is enabled under Repository Settings -> General."
+            exit 1
+          }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
