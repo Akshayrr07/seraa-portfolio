@@ -37,12 +37,22 @@ export default function ContactSection() {
 
     const form = e.currentTarget;
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError('Email service configuration missing. Please reach out directly via email.');
+      setLoading(false);
+      return;
+    }
+
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        serviceId,
+        templateId,
         form,
-        'YOUR_PUBLIC_KEY'
+        publicKey
       )
       .then(() => {
         setSubmitted(true);
@@ -139,7 +149,7 @@ export default function ContactSection() {
                     justifyContent: 'center',
                   }}
                 >
-                  <Icon name={item.icon as any} size={18} style={{ color: 'var(--brass)' } as React.CSSProperties} />
+                  <Icon name={item.icon} size={18} style={{ color: 'var(--brass)' } as React.CSSProperties} />
                 </div>
                 <span className="text-sm font-medium text-gray-700">{item.label}</span>
               </a>

@@ -11,7 +11,7 @@ interface Project {
   featured?: boolean;
 }
 
-const projects = [
+const projects: Project[] = [
   {
     title: 'Diet Diaries – Health Tracking Web App',
     description:
@@ -173,6 +173,8 @@ export default function ProjectsSection() {
 
               <a
                 href={project.link}
+                target={project.link.startsWith('http') ? '_blank' : undefined}
+                rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="inline-flex items-center gap-2 font-sans font-semibold"
                 style={{
                   fontSize: '13px',

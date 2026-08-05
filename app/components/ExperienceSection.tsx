@@ -114,7 +114,7 @@ export default function ExperienceSection() {
             </h3>
 
             <div className="space-y-8">
-              {experiences.map((exp, i) => (
+              {experiences.map((exp) => (
                 <div
                   key={exp.role + exp.company}
                   style={{
