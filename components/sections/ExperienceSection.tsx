@@ -19,7 +19,7 @@ const experiences = [
   {
     role: 'Frontend Developer Trainee',
     company: 'Encipher Health',
-    period: '2024 (2 Months)',
+    period: '2026 (2 Months)',
     description:
       'Completed a 2-month remote training internship as a Frontend Developer Trainee, focusing on developing responsive UI components for the Fine Dine web application. Built frontend features with emphasis on usability, clean interface design, and functionality.',
     highlights: [
@@ -194,11 +194,11 @@ export default function ExperienceSection() {
             {/* Stat cards */}
             <div className="grid grid-cols-2 gap-4 pt-4">
               {[
-  { value: '3+', label: 'Projects Completed' },
-  { value: '5+', label: 'Technologies Used' },
-  { value: '2+', label: 'Training Experience' },
-  { value: '100%', label: 'Commitment to Learning' },
-].map((stat) => (
+                { value: '3+', label: 'Projects Completed' },
+                { value: '5+', label: 'Technologies Used' },
+                { value: '2+', label: 'Training Experience' },
+                { value: '100%', label: 'Commitment to Learning' },
+              ].map((stat) => (
                 <div
                   key={stat.label}
                   className="paper-card text-center"
